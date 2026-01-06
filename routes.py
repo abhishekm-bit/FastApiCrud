@@ -28,4 +28,4 @@ def update_user(email: str, user: User):
 @router.delete("/users/{email}")
 def delete_user(email: str):
     collection.delete_one({"email": email})
-    return {"message": "User deleted"}
+    return {"message": "User deleted Successfully..."}
