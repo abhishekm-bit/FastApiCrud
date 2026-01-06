@@ -15,6 +15,7 @@ This is a simple **CRUD (Create, Read, Update, Delete)** REST API built using **
 ---
 
 ## 📁 Project Structure
+```
 Music
 ├── pytest.ini
 ├── Crud_FastApi/
@@ -29,8 +30,9 @@ Music
 ├── index.html
 ├── config.example.js
 
----
+```
 
+---
 ---
 
 ## ⚙️ Backend Setup & Run
@@ -83,7 +85,7 @@ const API_URL = "Paste Backend Url heres";
 
 3.Open frontend/index.html in browser
 
-#Features
+##Features
 
 Create / Read / Update / Delete Users
 
