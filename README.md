@@ -50,11 +50,11 @@ FastAPI automatically provides API docs:
 Swagger UI:
 👉 http://127.0.0.1:8000/docs
 
-
-
+---
+```
 ## 🌐 Frontend (HTML + CSS + JavaScript)
 
-## This project also includes a **simple frontend UI** built using **HTML, CSS, and JavaScript** to interact with the FastAPI backend.
+This project also includes a **simple frontend UI** built using **HTML, CSS, and JavaScript** to interact with the FastAPI backend.
 
 The frontend supports:
 - Create User
@@ -64,7 +64,7 @@ The frontend supports:
 - Client-side email validation
 - Form auto-clear after operations
 
-
+---
 ▶️ Run Frontend
 
 Make sure backend is running:
