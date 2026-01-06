@@ -7,51 +7,54 @@ This is a simple **CRUD (Create, Read, Update, Delete)** REST API built using **
 ## 🛠 Tech Stack
 - Python
 - FastAPI
-- MongoDB (Community Edition)
+- MongoDB
 - Pydantic
 - Uvicorn
+- Pytest
 
 ---
 
 ## 📁 Project Structure
-fastapi_mongo_crud/
-├── main.py # FastAPI app entry point
-├── routes.py # CRUD API routes
-├── models.py # Pydantic data models
-├── database.py # MongoDB connection
-├── venv/ # Virtual environment
-
+Music
+├── pytest.ini
+├── Crud_FastApi/
+│ ├── main.py
+│ ├── routes.py
+│ ├── models.py
+│ ├── database.py
+│ ├── tests/
+│ │ └── test_users.py
+│ └── venv/
+└── frontend/
+├── index.html
+├── config.example.js
 
 ---
 
-## ⚙️ Setup & Run (Local)
+---
 
-### 1️⃣ Create virtual environment
-```bash
+## ⚙️ Backend Setup & Run
+
+``` bash
+cd Crud_FastApi
 python -m venv venv
 venv\Scripts\activate
-
-2️⃣ Install dependencies
-pip install fastapi uvicorn pymongo
-
-3️⃣ Start MongoDB
-
-Ensure MongoDB service is running
-
-Or open MongoDB Compass and connect to localhost:27017
-
-4️⃣ Run the server
-uvicorn main:app --reload
-
-📘 API Documentation
-
-FastAPI automatically provides API docs:
+pip install fastapi uvicorn pymongo pytest pytest-asyncio httpx
+cd ..
+uvicorn Crud_FastApi.main:app --reload
 
 Swagger UI:
 👉 http://127.0.0.1:8000/docs
 
 ---
+
+``` bash 
+cd Crud_FastApi
+venv\Scripts\activate
+cd ..
+pytest
 ```
+
 ## 🌐 Frontend (HTML + CSS + JavaScript)
 
 This project also includes a **simple frontend UI** built using **HTML, CSS, and JavaScript** to interact with the FastAPI backend.
@@ -71,9 +74,24 @@ Make sure backend is running:
 
 uvicorn main:app --reload
 
+1.Create frontend/config.js (do not commit):
+``` bash
+const API_URL = "Paste Backend Url heres";
+```
 
-Open frontend:
-Create File Name Config.js and add there Backend Url there.
-Double-click index.html
+2.Use config.example.js as reference
 
-OR open it in any browser
+3.Open frontend/index.html in browser
+
+#Features
+
+Create / Read / Update / Delete Users
+
+Email validation
+
+FastAPI auto docs
+
+Pytest async test cases
+
+Clean project structure
+

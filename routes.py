@@ -1,6 +1,7 @@
 from fastapi import APIRouter
-from database import collection
-from models import User
+from Crud_FastApi.database import collection
+from Crud_FastApi.models import User
+
 from fastapi import HTTPException
 
 router = APIRouter()

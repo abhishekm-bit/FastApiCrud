@@ -1,16 +1,18 @@
 import pytest
 from httpx import AsyncClient
-from CRUD_FASTAPI.main import app
+from httpx import ASGITransport
 
-from database import collection
+from Crud_FastApi.main import app
+from Crud_FastApi.database import collection
 
 
 @pytest.mark.asyncio
 async def test_create_user():
-    # cleanup before test
     collection.delete_many({})
 
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    transport = ASGITransport(app=app)
+
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
         response = await ac.post(
             "/users",
             json={
@@ -26,7 +28,9 @@ async def test_create_user():
 
 @pytest.mark.asyncio
 async def test_get_users():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    transport = ASGITransport(app=app)
+
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
         response = await ac.get("/users")
 
     assert response.status_code == 200
@@ -35,7 +39,9 @@ async def test_get_users():
 
 @pytest.mark.asyncio
 async def test_update_user():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    transport = ASGITransport(app=app)
+
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
         response = await ac.put(
             "/users/abhi@gmail.com",
             json={
@@ -51,8 +57,10 @@ async def test_update_user():
 
 @pytest.mark.asyncio
 async def test_delete_user():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
+    transport = ASGITransport(app=app)
+
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
         response = await ac.delete("/users/abhi@gmail.com")
 
     assert response.status_code == 200
-    assert response.json()["message"] == "User deleted"
+    assert response.json()["message"] == "User deleted Successfully..."
