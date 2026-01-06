@@ -39,11 +39,27 @@ Music
 
 ``` bash
 cd Crud_FastApi
+```
+
+``` bash
 python -m venv venv
+```
+
+``` bash
 venv\Scripts\activate
+``` bash
+
+``` bash
 pip install fastapi uvicorn pymongo pytest pytest-asyncio httpx
+``` bash
+
+``` bash
 cd ..
+``` bash
+
+``` bash
 uvicorn Crud_FastApi.main:app --reload
+``` bash
 
 Swagger UI:
 👉 http://127.0.0.1:8000/docs
@@ -52,8 +68,17 @@ Swagger UI:
 
 ``` bash 
 cd Crud_FastApi
+```
+
+``` bash
 venv\Scripts\activate
+```
+
+``` bash
 cd ..
+```
+
+``` bash
 pytest
 ```
 
