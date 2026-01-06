@@ -73,7 +73,7 @@ uvicorn main:app --reload
 
 
 Open frontend:
-
+Create File Name Config.js and add there Backend Url there.
 Double-click index.html
 
 OR open it in any browser
