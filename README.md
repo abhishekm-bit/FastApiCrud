@@ -100,6 +100,7 @@ const API_URL = "Paste Backend Url heres";
 
 3.Open frontend/index.html in browser
 
+---
 #Features
 
 Create / Read / Update / Delete Users
