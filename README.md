@@ -66,17 +66,7 @@ Swagger UI:
 
 ---
 
-``` bash 
-cd Crud_FastApi
-```
-
-``` bash
-venv\Scripts\activate
-```
-
-``` bash
-cd ..
-```
+##Testing
 
 ``` bash
 pytest
@@ -110,7 +100,7 @@ const API_URL = "Paste Backend Url heres";
 
 3.Open frontend/index.html in browser
 
-##Features
+#Features
 
 Create / Read / Update / Delete Users
 
