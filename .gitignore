@@ -1,0 +1,23 @@
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Pytest / Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment variables
+.env
+
+# Frontend config (API URLs)
+config.js
+
+
+
+# Node / frontend (if added later)
+node_modules/
+dist/
+build/
