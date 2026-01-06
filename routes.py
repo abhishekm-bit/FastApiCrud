@@ -1,13 +1,19 @@
 from fastapi import APIRouter
 from database import collection
 from models import User
+from fastapi import HTTPException
 
 router = APIRouter()
 
 @router.post("/users")
 def create_user(user: User):
+    existing_user = collection.find_one({"email": user.email})
+
+    if existing_user:
+        raise HTTPException(status_code=400, detail="User already exists")
+
     collection.insert_one(user.dict())
-    return {"message": "User created"}
+    return {"message": "User created successfully"}
 
 @router.get("/users")
 def get_users():
