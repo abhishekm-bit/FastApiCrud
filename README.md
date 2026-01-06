@@ -54,7 +54,7 @@ Swagger UI:
 
 ## 🌐 Frontend (HTML + CSS + JavaScript)
 
-This project also includes a **simple frontend UI** built using **HTML, CSS, and JavaScript** to interact with the FastAPI backend.
+## This project also includes a **simple frontend UI** built using **HTML, CSS, and JavaScript** to interact with the FastAPI backend.
 
 The frontend supports:
 - Create User
