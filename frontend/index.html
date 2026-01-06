@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FastAPI MongoDB CRUD</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input, button {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        .danger {
+            background: red;
+        }
+
+        .danger:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+
+<h1>FastAPI MongoDB CRUD</h1>
+
+<div class="container">
+
+    <!-- CREATE USER -->
+    <h3>Create User</h3>
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="number" id="age" placeholder="Age">
+    <button onclick="createUser()">Create</button>
+
+    <!-- UPDATE USER -->
+    <h3>Update User (by Email)</h3>
+    <input type="email" id="updateEmail" placeholder="Email to Update">
+    <input type="text" id="updateName" placeholder="New Name">
+    <input type="number" id="updateAge" placeholder="New Age">
+    <button onclick="updateUser()">Update</button>
+
+    <!-- USERS LIST -->
+    <h3>All Users</h3>
+    <button onclick="getUsers()">Refresh Users</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="usersTable"></tbody>
+    </table>
+
+</div>
+
+<script>
+    const API_URL = "http://127.0.0.1:8000";
+
+    // 🔹 Email validation
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // 🔹 Clear forms
+    function clearCreateForm() {
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("age").value = "";
+    }
+
+    function clearUpdateForm() {
+        document.getElementById("updateEmail").value = "";
+        document.getElementById("updateName").value = "";
+        document.getElementById("updateAge").value = "";
+    }
+
+    // CREATE USER
+    async function createUser() {
+        const email = document.getElementById("email").value;
+
+        if (!isValidEmail(email)) {
+            alert("Please enter a valid email");
+            return;
+        }
+
+        const data = {
+            name: document.getElementById("name").value,
+            email: email,
+            age: parseInt(document.getElementById("age").value)
+        };
+
+        const res = await fetch(`${API_URL}/users`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        alert(result.detail || result.message);
+        clearCreateForm();
+        getUsers();
+    }
+
+    // GET USERS
+    async function getUsers() {
+        const res = await fetch(`${API_URL}/users`);
+        const users = await res.json();
+
+        const table = document.getElementById("usersTable");
+        table.innerHTML = "";
+
+        users.forEach(user => {
+            table.innerHTML += `
+                <tr>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.age}</td>
+                    <td>
+                        <button class="danger" onclick="deleteUser('${user.email}')">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            `;
+        });
+    }
+
+    // UPDATE USER
+    async function updateUser() {
+        const email = document.getElementById("updateEmail").value;
+
+        if (!isValidEmail(email)) {
+            alert("Please enter a valid email");
+            return;
+        }
+
+        const data = {
+            name: document.getElementById("updateName").value,
+            email: email,
+            age: parseInt(document.getElementById("updateAge").value)
+        };
+
+        const res = await fetch(`${API_URL}/users/${email}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+        alert(result.detail || result.message);
+        clearUpdateForm();
+        getUsers();
+    }
+
+    // DELETE USER
+    async function deleteUser(email) {
+        const res = await fetch(`${API_URL}/users/${email}`, {
+            method: "DELETE"
+        });
+
+        const result = await res.json();
+        alert(result.detail || result.message);
+        getUsers();
+    }
+
+    // Load users initially
+    getUsers();
+</script>
+
+</body>
+</html>
