@@ -63,15 +63,15 @@ python app.py
 ``` 
  ## This embeds a query and retrieves the most similar stored text.
 
-# Screenshots Included
+Screenshots Included
 
-# Ollama model availability
+Ollama model availability
 
-# Embedding & storage execution
+Embedding & storage execution
 
-# Similarity search output
+Similarity search output
 
-# Code implementation
+Code implementation
 
 ## Summary
 
