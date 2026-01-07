@@ -56,26 +56,24 @@ ollama list
 python embed_store.py
 ```
 
-Output
-Completed Query embedded and Store into ChromaDb
-
+## Output Completed Query embedded and Store into ChromaDb
 
 ```bash
 python app.py
-```
-This embeds a query and retrieves the most similar stored text.
+``` 
+ ## This embeds a query and retrieves the most similar stored text.
 
-Screenshots Included
+# Screenshots Included
 
-Ollama model availability
+# Ollama model availability
 
-Embedding & storage execution
+# Embedding & storage execution
 
-Similarity search output
+# Similarity search output
 
-Code implementation
+# Code implementation
 
-Summary
+## Summary
 
 This project converts text into embeddings and stores them in a vector
 database, enabling semantic search. This is the core building block
