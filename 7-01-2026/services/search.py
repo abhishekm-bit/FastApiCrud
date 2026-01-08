@@ -1,6 +1,7 @@
 from services.embedding import generate_embedding
 from services.vector_store import get_collection
 
+# Stored
 def store_text(text: str, doc_id: str):
     collection = get_collection()
     embedding = generate_embedding(text)
@@ -10,7 +11,7 @@ def store_text(text: str, doc_id: str):
         embeddings=[embedding],
         documents=[text]
     )
-
+# Search
 def search_text(query: str):
     collection = get_collection()
     query_embedding = generate_embedding(query)
