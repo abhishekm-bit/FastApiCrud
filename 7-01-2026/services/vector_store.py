@@ -1,7 +1,10 @@
 import chromadb
-from config import COLLECTION_NAME
-
-client = chromadb.Client()
+from chromadb.config import Settings
 
 def get_collection():
-    return client.get_or_create_collection(name=COLLECTION_NAME)
+    client = chromadb.Client(
+        Settings(
+            persist_directory="chroma_db"
+        )
+    )
+    return client.get_or_create_collection(name="queries")
