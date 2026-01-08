@@ -12,7 +12,6 @@ collection.add(
     embeddings=[embedding],
     documents=[text]
 )
-
 # STEP 2: search
 query = "Can I know policy  Cascade ?"
 query_embedding = generate_embedding(query)
