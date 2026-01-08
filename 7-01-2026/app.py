@@ -14,7 +14,7 @@ collection.add(
 )
 
 # STEP 2: search
-query = "Cascade Clouds policy"
+query = "Can I know policy  Cascade ?"
 query_embedding = generate_embedding(query)
 
 result = collection.query(

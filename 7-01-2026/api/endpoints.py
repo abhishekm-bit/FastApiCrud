@@ -1,8 +1,10 @@
-from services.search import search_similar
+from services.search import store_text, search_text
 
-def search_endpoint(query: str):
-    """
-    Simple API-like function
-    """
-    result = search_similar(query)
-    return result
+def store_endpoint():
+    text = "Can I know policy of Cascade Clouds?"
+    store_text(text, "query1")
+    return "Data stored successfully"
+
+def search_endpoint():
+    query = "Cascade Clouds policy"
+    return search_text(query)
