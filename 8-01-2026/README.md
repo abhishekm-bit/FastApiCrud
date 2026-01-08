@@ -100,8 +100,7 @@ Run:
 ```bash
 python ingest_pdf.py
 ```
--
----
+
 What happens internally:
 
 PDF text is loaded
@@ -133,8 +132,9 @@ python query.py
 Example query:
 ```bash
 query = "Who is Vishwas Narayan Nangare Patil?"
+
 ```
---
+---
 ---
 Example output:
 ```
@@ -152,21 +152,21 @@ Positions held...
 🧩 How Chunking Works
 
 ```bash
-def chunk_text(text, chunk_size=500, overlap=50):
+def chunk_text(text, chunk_size=600, overlap=90):
 ```
-Each chunk contains 500 characters
+Each chunk contains 600 characters
 
-50 characters overlap ensures context is preserved
+900 characters overlap ensures context is preserved
 
 Total chunks depend on PDF text length
 
 Example:
 
-PDF length = 1379
+PDF length = 19694
 
-Chunk size = 500
+Chunk size = 600
 
-Result = 4 chunks
+Result = 39 chunks
 
 
 ```

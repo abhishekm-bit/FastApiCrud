@@ -19,16 +19,17 @@ def search_chunks_cosine(query, top_k):
     db_embeddings = np.array(data["embeddings"])
     query_embedding = np.array(query_embedding).reshape(1, -1)
 
-    # cosine similarity
+    # cosine similarity (0 → 1)
     scores = cosine_similarity(query_embedding, db_embeddings)[0]
 
-    # top K indices
+    # get top K highest
     top_indices = scores.argsort()[-top_k:][::-1]
 
     results = []
     for idx in top_indices:
         results.append({
-            "score": float(scores[idx]),
+            # 🔥 scale similarity to 0 → 10
+            "score": round(float(scores[idx] * 10), 2),
             "document": data["documents"][idx]
         })
 
