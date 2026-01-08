@@ -1,9 +1,10 @@
-📄 PDF Similarity Search using RAG (Ollama + ChromaDB)
-
+#📄 PDF Similarity Search using RAG (Ollama + ChromaDB)
+---
+---
 This project demonstrates a basic Retrieval-Augmented Generation (RAG) pipeline built from scratch using Python, Ollama embeddings, ChromaDB (Vector Database), and Cosine Similarity.
-
-The system:
-
+---
+---
+##The system:
 Loads a PDF
 
 Converts PDF text into chunks
