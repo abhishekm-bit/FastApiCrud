@@ -1,0 +1,101 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.0.2, pluggy-1.6.0
+rootdir: C:\Users\ADMIN\Music
+configfile: pytest.ini
+plugins: anyio-4.12.1, cov-7.0.0
+collected 5 items
+
+tests\test_api.py .                                                      [ 20%]
+tests\test_embeddings.py .                                               [ 40%]
+tests\test_rag.py .                                                      [ 60%]
+tests\test_scraper.py ..                                                 [100%]
+
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:241
+  <frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:241
+  <frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:241
+  <frozen importlib._bootstrap>:241: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+..\venv\Lib\site-packages\httplib2\auth.py:19
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:19: DeprecationWarning: 'setName' deprecated - use 'set_name'
+    token = pp.Word(tchar).setName("token")
+
+..\venv\Lib\site-packages\httplib2\auth.py:20
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:20: DeprecationWarning: 'leaveWhitespace' deprecated - use 'leave_whitespace'
+    token68 = pp.Combine(pp.Word("-._~+/" + pp.nums + pp.alphas) + pp.Optional(pp.Word("=").leaveWhitespace())).setName(
+
+..\venv\Lib\site-packages\httplib2\auth.py:20
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:20: DeprecationWarning: 'setName' deprecated - use 'set_name'
+    token68 = pp.Combine(pp.Word("-._~+/" + pp.nums + pp.alphas) + pp.Optional(pp.Word("=").leaveWhitespace())).setName(
+
+..\venv\Lib\site-packages\httplib2\auth.py:24
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:24: DeprecationWarning: 'setName' deprecated - use 'set_name'
+    quoted_string = pp.dblQuotedString.copy().setName("quoted-string").setParseAction(unquote)
+
+..\venv\Lib\site-packages\httplib2\auth.py:24
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:24: DeprecationWarning: 'setParseAction' deprecated - use 'set_parse_action'
+    quoted_string = pp.dblQuotedString.copy().setName("quoted-string").setParseAction(unquote)
+
+..\venv\Lib\site-packages\httplib2\auth.py:25
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:25: DeprecationWarning: 'setName' deprecated - use 'set_name'
+    auth_param_name = token.copy().setName("auth-param-name").addParseAction(downcaseTokens)
+
+..\venv\Lib\site-packages\httplib2\auth.py:25
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:25: DeprecationWarning: 'addParseAction' deprecated - use 'add_parse_action'
+    auth_param_name = token.copy().setName("auth-param-name").addParseAction(downcaseTokens)
+
+..\venv\Lib\site-packages\httplib2\auth.py:27
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:27: DeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+    params = pp.Dict(pp.delimitedList(pp.Group(auth_param)))
+
+..\venv\Lib\site-packages\httplib2\auth.py:33
+  C:\Users\ADMIN\Music\9-01-2026\venv\Lib\site-packages\httplib2\auth.py:33: DeprecationWarning: 'delimitedList' deprecated - use 'DelimitedList'
+    www_authenticate = pp.delimitedList(pp.Group(challenge))
+
+services\gemini.py:1
+  C:\Users\ADMIN\Music\9-01-2026\backend\services\gemini.py:1: FutureWarning: 
+  
+  All support for the `google.generativeai` package has ended. It will no longer be receiving 
+  updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+  See README for more details:
+  
+  https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+  
+    import google.generativeai as genai
+
+9-01-2026/backend/tests/test_api.py::test_generate_api
+  C:\Users\ADMIN\Music\9-01-2026\backend\api\syllabus.py:43: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+    logs.insert_one(data.dict())
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=============================== tests coverage ================================
+_______________ coverage: platform win32, python 3.11.9-final-0 _______________
+
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+api\__init__.py                0      0   100%
+api\auth.py                    0      0   100%
+api\syllabus.py               25      0   100%
+config.py                      3      0   100%
+db\__init__.py                 0      0   100%
+db\mongo.py                    6      0   100%
+db\vector_db.py               17      0   100%
+main.py                        9      1    89%
+models\schemas.py              6      0   100%
+services\__init__.py           0      0   100%
+services\embeddings.py         4      0   100%
+services\gemini.py             8      0   100%
+services\rag.py                3      0   100%
+services\scraper.py           13      0   100%
+tests\__init__.py              0      0   100%
+tests\test_api.py              8      0   100%
+tests\test_embeddings.py       6      0   100%
+tests\test_rag.py              9      0   100%
+tests\test_scraper.py         12      1    92%
+----------------------------------------------
+TOTAL                        129      2    98%
+======================= 5 passed, 14 warnings in 38.05s =======================
