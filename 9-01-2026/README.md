@@ -3,7 +3,7 @@
 AI-powered Training Syllabus Generator for EdTech domain using
 Web-Augmented Generation (RAG) architecture.
 
-This project scrapes real course data from URLs, converts it into embeddings, stores it in FAISS, retrieves relevant content, and generates professional syllabi using Gemini AI.
+This project scrapes real course data from URLs, converts it into embeddings, stores it in FAISS, retrieves relevant content, and generates professional syllabus using Gemini AI.
 
 
 ## 📌 Project Details
@@ -11,9 +11,10 @@ This project scrapes real course data from URLs, converts it into embeddings, st
 Domain: EdTech
 Title: Training Syllabus Generation
 Architecture: RAG (Retrieval Augmented Generation)
+```
 Backend Weightage: 70%
 Frontend Weightage: 30%
-
+```
 
 # 🎯 Objective
 
@@ -269,6 +270,7 @@ Can be persisted if needed
 
 # 📈 Features
 
+```
 ✔ RAG Architecture
 ✔ Web scraping
 ✔ Vector similarity search
@@ -277,6 +279,4 @@ Can be persisted if needed
 ✔ RTK Query
 ✔ Form validation
 ✔ Clean UI.
-
-
-
+```
