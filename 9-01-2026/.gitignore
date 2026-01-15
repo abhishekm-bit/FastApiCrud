@@ -9,6 +9,8 @@ node_modules/
 # Env files
 .env
 
+backend/
+config
 # VS Code
 .vscode/
 
